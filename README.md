@@ -197,6 +197,81 @@ Username: sa
 Password: password
 ```
 
+# API Documentation (Swagger)
+
+Interactive API documentation is available using **Swagger UI** for both microservices.
+
+Swagger allows developers to:
+
+- Explore available APIs
+- View request/response models
+- Execute API calls directly from the browser
+- Understand API contracts easily
+
+---
+
+## Student Service API
+
+Swagger UI:
+
+```
+http://localhost:8081/swagger-ui/index.html
+```
+
+OpenAPI Specification:
+
+```
+http://localhost:8081/v3/api-docs
+```
+
+The Student Service provides **CRUD operations** for managing student records.
+
+Supported operations include:
+
+- Create Student
+- Get All Students
+- Get Student By ID
+- Update Student
+- Delete Student
+
+The H2 database is automatically initialized with **20 student records** when the service starts using the `data.sql` script.
+
+---
+
+## Fees Collection Service API
+
+Swagger UI:
+
+```
+http://localhost:8082/swagger-ui/index.html
+```
+
+OpenAPI Specification:
+
+```
+http://localhost:8082/v3/api-docs
+```
+
+The Fees Collection Service handles **student fee payment operations** and communicates with the **Student Service** to retrieve student details before processing payments.
+
+---
+
+## How to Use Swagger
+
+1. Open the Swagger UI link for the service.
+2. Expand the API endpoint you want to test.
+3. Click **Try it out**.
+4. Enter the required parameters.
+5. Click **Execute** to call the API.
+
+Swagger will display:
+
+- Request details
+- Response body
+- HTTP status codes
+
+---
+
 ---
 
 ## Fees Collection Service Database
@@ -208,17 +283,6 @@ Username: sa
 Password: password
 ```
 
----
-
-# API Access
-
-All APIs should be accessed through the **API Gateway**.
-
-Example:
-
-```
-http://localhost:8083/api/...
-```
 
 ---
 
