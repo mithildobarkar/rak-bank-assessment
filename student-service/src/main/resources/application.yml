@@ -1,0 +1,60 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: dev
+  application:
+    name: student-service
+
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    sql:
+      init:
+        mode: always
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},correlationId=%X{correlationId:-}]"
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    hostname: student-service
+    instance-id: ${spring.application.name}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "Student Service"
+    description: "Student Service"
+    version: "1.0.0"
