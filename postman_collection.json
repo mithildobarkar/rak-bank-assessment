@@ -1,0 +1,198 @@
+{
+  "info": {
+    "_postman_id": "854a7d55-c173-4db7-9000-1cb991a0f471",
+    "name": "rak-bank-assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3396045",
+    "_collection_link": "https://go.postman.co/collection/3396045-854a7d55-c173-4db7-9000-1cb991a0f471?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Student-collection",
+      "item": [
+        {
+          "name": "Add Student",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"studentName\": \"Test Student\",\r\n    \"studentId\": \"S101\",\r\n    \"grade\": \"G-3\",\r\n    \"mobileNumber\": \"0502220939\",\r\n    \"schoolName\": \"Test School Name\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/students",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "students"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"studentName\": \"Test Student\",\r\n    \"studentId\": \"S101\",\r\n    \"grade\": \"G-3\",\r\n    \"mobileNumber\": \"0502220939\",\r\n    \"schoolName\": \"Test School Name update\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/students/S1001",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "students",
+                "S1001"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Student by student id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/students/S1001",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "students",
+                "S1001"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/students",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "students"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/students/S1001",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "students",
+                "S1001"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fees-collection",
+      "item": [
+        {
+          "name": "Collect Fees",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"studentId\": \"S1002\",\r\n  \"amountPaid\": 250.00,\r\n  \"currency\": \"AED\",\r\n  \"paymentMode\": \"Credit Card\",\r\n  \"paymentDateTime\": \"12/03/2026 21:26\",\r\n  \"feeType\": \"Tuition\",\r\n  \"academicYear\": \"2025-26\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/fees/collect",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "fees",
+                "collect"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Receipt by Student id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/fees/S1001/receipts",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "fees",
+                "S1001",
+                "receipts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Receipts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/fees/receipts",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "fees",
+                "receipts"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

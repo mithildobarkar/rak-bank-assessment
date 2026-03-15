@@ -1,8 +1,6 @@
 server:
   port: 8082
 spring:
-  profiles:
-    active: dev
   application:
     name: fees-collection-service
 

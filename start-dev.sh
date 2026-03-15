@@ -29,7 +29,7 @@ cd ..
 sleep 5
 
 echo "Starting Fees Service..."
-cd fees-service
+cd fee-collection-service
 mvn clean install
 mvn spring-boot:run > ../logs/fees.log 2>&1 &
 FEES_PID=$!
