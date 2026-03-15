@@ -51,12 +51,19 @@ sequenceDiagram
     participant FeeService
     participant StudentService
 
-    Client->>APIGateway: API Request
-    APIGateway->>FeeService: Forward Request
-    FeeService->>StudentService: Fetch Student Details
-    StudentService-->>FeeService: Student Data
-    FeeService-->>APIGateway: Response
-    APIGateway-->>Client: Final Response
+    alt Student CRUD Operations
+        Client->>APIGateway: Create / Update / Delete / Get Student
+        APIGateway->>StudentService: Forward Student API Request
+        StudentService-->>APIGateway: Student Operation Response
+        APIGateway-->>Client: Final Response
+    else Fee Payment Flow
+        Client->>APIGateway: Pay Fees Request
+        APIGateway->>FeeService: Forward Fee Payment Request
+        FeeService->>StudentService: Fetch Student Details
+        StudentService-->>FeeService: Student Data
+        FeeService-->>APIGateway: Payment Status
+        APIGateway-->>Client: Final Response
+    end
 ```
 
 ---
